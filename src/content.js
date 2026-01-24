@@ -88,16 +88,27 @@
     let bottomPosition = '28px';
     let rightPosition = '260px';
 
-    // Calculate bottom position relative to settings button if found
+    // Calculate positions relative to viewport size for consistency across devices
     if (settingsBtn) {
       const rect = settingsBtn.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const bottomEdge = viewportHeight - rect.bottom;
-      bottomPosition = `${bottomEdge + 8}px`;
-      // Position container to align with settings button area
       const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate as percentage of viewport for true relative positioning
+      const bottomEdge = viewportHeight - rect.bottom;
+      const bottomPercent = ((bottomEdge + 8) / viewportHeight) * 100;
+      bottomPosition = `${bottomPercent}vh`;
+      
+      // Calculate right position as percentage of viewport width
       const rightEdge = viewportWidth - rect.right;
-      rightPosition = `${rightEdge + 240}px`;
+      const rightPercent = ((rightEdge + 240) / viewportWidth) * 100;
+      rightPosition = `${rightPercent}vw`;
+    } else {
+      // Fallback: use viewport-relative units
+      const viewportWidth = window.innerWidth;
+      const rightPercent = (260 / viewportWidth) * 100;
+      rightPosition = `${rightPercent}vw`;
+      bottomPosition = '2vh'; // Approximately 28px on a 1400px height screen
     }
 
     // Create container row with Flexbox
@@ -138,18 +149,21 @@
     document.body.appendChild(toggleContainer);
     toggleButton = toggleContainer;
 
-    // Update position on window resize and scroll
+    // Update position on window resize and scroll using viewport-relative units
     const updatePosition = () => {
       if (toggleContainer && settingsBtn && settingsBtn.offsetParent) {
         const newRect = settingsBtn.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
         
+        // Calculate as percentage of viewport for consistency
         const rightEdge = viewportWidth - newRect.right;
-        toggleContainer.style.right = `${rightEdge + 240}px`;
+        const rightPercent = ((rightEdge + 240) / viewportWidth) * 100;
+        toggleContainer.style.right = `${rightPercent}vw`;
         
         const bottomEdge = viewportHeight - newRect.bottom;
-        toggleContainer.style.bottom = `${bottomEdge + 8}px`;
+        const bottomPercent = ((bottomEdge + 8) / viewportHeight) * 100;
+        toggleContainer.style.bottom = `${bottomPercent}vh`;
       }
     };
     
