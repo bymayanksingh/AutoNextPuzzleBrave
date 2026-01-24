@@ -6,7 +6,7 @@ A Chrome extension that automatically clicks the "Next" or "Continue" button aft
 
 - **Automatic Advancement**: Automatically clicks the Next/Continue button after puzzle completion
 - **Configurable Delay**: Set custom delay (in milliseconds) before auto-clicking (default: 5ms)
-- **Easy Toggle**: Enable or disable the feature with a toggle switch on the puzzle page
+- **Easy Toggle**: Enable or disable the feature with a toggle switch on the puzzle page (like old chess.com)
 
 
 ##  Installation
@@ -21,9 +21,9 @@ A Chrome extension that automatically clicks the "Next" or "Continue" button aft
 6. Select the folder containing the extension files
 7. The extension icon should appear in your Chrome toolbar
 
-### Method 2: From ZIP File
+### Method 2: From Releases
 
-1. Download `chess-auto-next.zip`
+1. 1. **Download** the latest release: [Download AutoNextPuzzle.zip](https://github.com/fwhuy/AutoNextPuzzle/releases/latest/download/autonextpuzzle.zip)
 2. Extract to a folder
 3. Follow steps 3-7 from Method 1 above
 
@@ -49,20 +49,6 @@ A Chrome extension that automatically clicks the "Next" or "Continue" button aft
    - Continue your puzzle streak seamlessly!
 
 ## ⚙️ Settings Explained
-
-### Auto-Next Toggle
-- Located in the bottom-right corner of the puzzle page (positioned near the settings icon)
-- Appears automatically when you're on a puzzle page
-- **On**: Extension will auto-click the Next button
-- **Off**: Extension is disabled, manual clicking required
-- Toggle state is saved and persists across page reloads
-
-### Delay (milliseconds)
-- Time to wait before clicking the Next button after puzzle completion
-- **Default**: 5ms for instant advancement
-- **Higher values** (100-2000ms): More time to review the puzzle solution
-
-
 
 
 ##  Privacy & Permissions
