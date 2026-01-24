@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Chess.com Auto-Next Puzzle",
+  "version": "1.0",
+  "description": "Automatically clicks the Next button after completing Chess.com puzzles",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.chess.com/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
